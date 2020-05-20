@@ -1,4 +1,6 @@
-#Add 'get explorer' function incase we need it
+#Simple PoC Aggressor Script to Perform Different Actions for Different Beacons
+
+#Add 'get explorer' function incase we need it:
 sub getexplorerpid {
         bps($1, lambda({
                 local('$pid $name $entry');
