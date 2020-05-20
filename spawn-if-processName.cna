@@ -1,0 +1,37 @@
+#Add 'get explorer' function incase we need it
+sub getexplorerpid {
+        bps($1, lambda({
+                local('$pid $name $entry');
+                foreach $entry (split("\n", $2)) {
+                        ($name, $null, $pid) = split("\\s+", $entry);
+                        if ($name eq "explorer.exe") {
+                                [$callback: $1, $pid];
+                        }
+                }
+        }, $callback => $2));
+}
+
+
+#Perform action based on process/listner
+on beacon_initial {
+
+    $metadata = beacon_data($1);
+
+    if ($metadata['process'] eq "[PROCESS]") {
+        if($metadata['listener'] eq "[LISTENER]"){
+                [DO COMMANDS];
+        }
+        else if($metadata['listener'] eq "[LISTENER]"){
+                [DO COMMANDS];
+        }
+    }
+
+    if ($metadata['process'] eq "[PROCESS]") {
+        [DO COMMANDS];
+    }
+
+    if ($metadata['process'] eq "[PROCESS]") {
+        [DO COMMANDS];
+    }
+
+}
